@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>和歌山大学非公式シラバス検索API</title>
+</head>
+<body>
+<h1 style="font-size: 26px">和歌山大学非公式シラバス検索API</h1>
+<h2>使い方</h2>
+<hr>
+<h2>/api/select</h2>
+<h3>概要</h3>
+<p>シラバストップページの選択肢</p>
+<h3>パラメータ</h3>
+<p>なし</p>
+<h3>返り値の例</h3>
+<a href="/api/select">/api/select</a>
+<hr>
+<h2>/api/search</h2>
+<h3>概要</h3>
+<p>授業の検索</p>
+<h3>パラメータ</h3>
+<p>GETリクエストのパラメータ一覧。正規表現に対応</p>
+<table border="1" cellspacing="0" cellpadding="5">
+  <tr>
+    <th>キー</th>
+    <th>説明</th>
+    <th>値の型</th>
+  </tr>
+  <tr>
+    <td>page(必須)</td>
+    <td>ページ数</td>
+    <td>1以上の整数</td>
+  </tr>
+  <tr>
+    <td>title</td>
+    <td>タイトル</td>
+    <td>整数</td>
+  </tr>
+  <tr>
+    <td>folder</td>
+    <td>フォルダー</td>
+    <td>整数</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>科目名</td>
+    <td>文字列(正規表現に対応)</td>
+  </tr>
+  <tr>
+    <td>editors</td>
+    <td>担当教員</td>
+    <td>文字列(正規表現に対応)</td>
+  </tr>
+  <tr>
+    <td>overview</td>
+    <td>授業の概要・ねらい</td>
+    <td>文字列(正規表現に対応)</td>
+  </tr>
+</table>
+<h3>返り値の例</h3>
+<a href="/api/search?name=論&page=1">/api/search?name=論&page=1</a>
+</body>
+</html>

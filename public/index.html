@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>和歌山大学非公式シラバス検索</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+  <style>
+  h1 {
+    font-size: 28px;
+  }
+  table {
+    font-size: 12px;
+  }
+  main {
+    padding: 20px;
+  }
+  </style>
+</head>
+<body>
+
+<main class="container px-3 mb-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 style="font-size: 22px; font-weight: bold;">和歌山大学非公式シラバス検索</h1>
+      <p>検索条件によっては公式よりだいぶ高速なシラバス検索</p>
+      <p>データ取得日:<span id="updated_at"></span></p>
+      <div class="my-2">
+        <button id="submit" class="btn btn-primary" type="button">検索</button>
+        <span class="pagenation-menu" style="display:none;">
+          <button id="prev" class="btn btn-default btn-sm" type="button">前へ</button>
+          <button id="next" class="btn btn-default btn-sm" type="button">次へ</button>
+          <span id="now-page">1</span>/<span id="page-limit">1</span>ページ
+          <span class="loading" style="display:none;">読込中…</span>
+        </span>
+      </div>
+      <div class="form-group">
+
+        <label for="title">タイトル</label>
+        <select id="title" class="custom-select search-input">
+          <option selected value="0">読み込み中…</option>
+        </select>
+
+        <label for="folder">フォルダ</label>
+        <select id="folder" class="custom-select search-input">
+          <option selected value="0">選択して下さい</option>
+        </select>
+
+        <label for="name">科目名</label>
+        <input id="name" type="text" class="form-control search-input">
+
+        <label for="editors">担当教員</label>
+        <input id="editors" type="text" class="form-control search-input">
+
+        <label for="overview">概要</label>
+        <input id="overview" type="text" class="form-control search-input">
+
+      </div>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>科目名</th>
+          <th>担当教員</th>
+          <th>学期</th>
+          <th>時限</th>
+        </tr>
+        </thead>
+        <tbody id="result">
+        </tbody>
+      </table>
+      <p>
+        APIリファレンス：<a href="api/" target="_blank">api/</a><br>
+        ソースコード：<a href="https://github.com/mzdkzk/wusyllabus.firebaseapp.com" target="_blank">GitHub</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./index.js"></script>
+</body>
+</html>
