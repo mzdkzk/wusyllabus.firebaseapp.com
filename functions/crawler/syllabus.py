@@ -116,7 +116,7 @@ except FileNotFoundError:
             )
         )
 
-    with codecs.open('db/select.json', 'w', 'utf-8') as f:
+    with codecs.open('../db/select.json', 'w', 'utf-8') as f:
         json.dump({'result': select_values, 'updated_at': now}, f, ensure_ascii=False, indent=2)
 
 # ---------------------------------------------------------------
@@ -274,5 +274,5 @@ for i in select_values:
         result.extend(page_result)
 
 # 重複を消す
-with codecs.open('db/data.json', 'w', encoding='utf-8') as f:
+with codecs.open('../db/data.json', 'w', encoding='utf-8') as f:
     json.dump({'result': result, 'updated_at': now}, f, ensure_ascii=False, indent=2)
