@@ -7,6 +7,13 @@ const dataJson = utils.jsonLoad(__dirname + '/db/data.json')
 
 
 const app = express()
+
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+  next()
+})
+
 app.get('/api/select', (request, response) => {
   response.send(selectJson)
 })
@@ -34,15 +41,15 @@ app.get('/api/search', (request, response) => {
 
     let checker = null
     if (pattern === 0) {
-      checker = function (x) {
+      checker = function(x) {
         return new RegExp(q).test(x[param]['value'])
       }
     } else if (pattern === 1) {
-      checker = function (x) {
+      checker = function(x) {
         return new RegExp(q).test(x[param].join(','))
       }
     } else {
-      checker = function (x) {
+      checker = function(x) {
         return new RegExp(q).test(x[param])
       }
     }
@@ -60,7 +67,7 @@ app.get('/api/search', (request, response) => {
     const page_cols = 10
 
     const index = page - 1
-    page_result = temp_data.slice(index*page_cols, index*page_cols+10)
+    page_result = temp_data.slice(index * page_cols, index * page_cols + 10)
 
     page_limit = Math.ceil(temp_data.length / page_cols)
     if (page_limit === 0) {
@@ -78,4 +85,4 @@ app.get('/api/search', (request, response) => {
   response.send(result)
 })
 
-exports.app = functions.https.onRequest(app);
+exports.app = functions.https.onRequest(app)
